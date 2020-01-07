@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">EWeather</string>
+    <string name="default_temp">0</string>
+</resources>
