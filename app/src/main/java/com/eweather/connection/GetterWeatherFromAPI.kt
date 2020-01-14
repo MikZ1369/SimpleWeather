@@ -1,6 +1,7 @@
 package com.eweather.connection
 
 import android.location.Location
+import android.util.Log
 import java.io.*
 import java.net.*
 
@@ -16,7 +17,10 @@ class GetterWeatherFromAPI {
     }
 
     private fun getData(url: String): String?{
-        if (!checkConnection()) return null
+        if (!checkConnection()) {
+            Log.d("Log message", "Error connection!")
+            return null
+        }
         var inputLine: String
         var inputStream: InputStream? = null
 

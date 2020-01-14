@@ -1,5 +1,6 @@
 package com.eweather.databases
 
+import androidx.room.Room
 import androidx.test.InstrumentationRegistry.getTargetContext
 import androidx.test.runner.AndroidJUnit4
 import org.junit.After
@@ -13,18 +14,19 @@ class WeatherDBTest {
     private val context = getTargetContext()
     @Test
     fun testDB() {
-        val weatherDB = creatorWeatherDB(context, "testDB")
+        val weatherDB = Room.databaseBuilder(context,
+            WeatherDataBase.WeatherDB::class.java, "testDB").build()
         val currentlyDao = weatherDB.weatherCurrentlyDao()
         val hourlyDao = weatherDB.weatherHourlyDao()
         val dailyDao = weatherDB.weatherDailyDao()
 
-        val weatherCurrently = WeatherDB.WeatherCurrently(null,
+        val weatherCurrently = WeatherDataBase.WeatherCurrently(null,
             "", 0, 23)
 
-        val weatherHourly = WeatherDB.WeatherHourly(null,
+        val weatherHourly = WeatherDataBase.WeatherHourly(null,
             "", 0, 2, 23)
 
-        val weatherDaily = WeatherDB.WeatherDaily(null,
+        val weatherDaily = WeatherDataBase.WeatherDaily(null,
         "", 0, 2, 1, 23)
 
         currentlyDao.insertAll(weatherCurrently)

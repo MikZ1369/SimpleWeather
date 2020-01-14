@@ -6,7 +6,7 @@ import android.location.Location
 import android.os.Looper
 import com.google.android.gms.location.*
 
-class GetterDeviceLocation(private val worker: (Location?) -> Unit, private val context: Context) {
+class GetterDeviceLocation(private val worker: (Location) -> Unit, private val context: Context) {
     private lateinit var locationCallback: LocationCallback
     private lateinit var locationRequest: LocationRequest
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
@@ -49,7 +49,7 @@ class GetterDeviceLocation(private val worker: (Location?) -> Unit, private val 
         fusedLocationProviderClient.removeLocationUpdates(locationCallback)
     }
 
-    private fun postLocationUpdate(location: Location?) {
+    private fun postLocationUpdate(location: Location) {
         worker(location)
     }
 }

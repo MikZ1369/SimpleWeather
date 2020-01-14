@@ -3,7 +3,7 @@ package com.eweather.databases
 import android.content.Context
 import androidx.room.*
 
-class WeatherDB {
+class WeatherDataBase {
     @Entity (tableName = "weatherCurrently")
     class WeatherCurrently (
        @PrimaryKey(autoGenerate = true) var weatherCurrentlyID: Int? = null,
@@ -31,8 +31,8 @@ class WeatherDB {
         @ColumnInfo(name = "windSpeed") var windSpeed: Int
     ) {}
 
-    data class WeatherPackage(val weatherCurrently: WeatherCurrently, val weatherHourly: ArrayList<WeatherHourly>,
-                         val weatherDaily: ArrayList<WeatherDaily>)
+    data class WeatherPackage(val weatherCurrently: WeatherCurrently, val weatherHourly: List<WeatherHourly>,
+                         val weatherDaily: List<WeatherDaily>)
 
     @Dao
     interface WeatherCurrentlyDao {
@@ -75,13 +75,9 @@ class WeatherDB {
         WeatherHourly::class,
         WeatherDaily::class
     ), version = 1)
-    abstract class WeatherDataBase : RoomDatabase() {
+    abstract class WeatherDB : RoomDatabase() {
         abstract fun weatherCurrentlyDao() : WeatherCurrentlyDao
         abstract fun weatherHourlyDao() : WeatherHourlyDao
         abstract fun weatherDailyDao() : WeatherDailyDao
     }
-}
-
-fun creatorWeatherDB(applicationContext: Context, databaseName: String = "weatherDB") :WeatherDB.WeatherDataBase {
-    return Room.databaseBuilder(applicationContext, WeatherDB.WeatherDataBase::class.java, databaseName).build()
 }
