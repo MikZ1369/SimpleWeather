@@ -1,30 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="60dp"
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/dailyIcon"
-        android:layout_width="wrap_content"
+        android:id="@+id/dailyDate"
+        android:layout_width="58dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:text="SUN 25"
+        android:textColor="@color/white" />
 
     <TextView
-        android:id="@+id/dailyTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"/>
+        android:layout_alignTop="@+id/dailyTemperatureHigh"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/dailyTemperatureHigh"
+        android:layout_toRightOf="@+id/dailyTemperatureHigh"
+        android:text="°"
+        android:textColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/dailyIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/dailyDate"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/dailyTemperatureHigh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dailyIcon"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="5dp"
+        android:text="-21"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/dailyTemperatureLow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dailyIcon"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="34dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="10dp"
+        android:text="-30"
+        android:textColor="@color/white"
+        android:textSize="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/dailyTemperatureLow"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/dailyTemperatureLow"
+        android:layout_toRightOf="@+id/dailyTemperatureLow"
+        android:text="°"
+        android:textColor="@color/white"
+        android:textSize="10dp" />
 
     <TextView
         android:id="@+id/dailyWindSpeed"
-        android:layout_width="wrap_content"
+        android:layout_width="19dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"/>
+        android:layout_below="@+id/dailyTemperatureHigh"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:text="24"
+        android:textColor="@color/white" />
 
-    <TextView
-        android:id="@+id/dailyTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"/>
+    <ImageView
+        android:id="@+id/dailyWindIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        android:src="@drawable/wind" />
 
-</LinearLayout>
+
+</RelativeLayout>

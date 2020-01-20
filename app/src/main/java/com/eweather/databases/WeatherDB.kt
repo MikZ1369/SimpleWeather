@@ -9,7 +9,8 @@ class WeatherDataBase {
        @PrimaryKey(autoGenerate = true) var weatherCurrentlyID: Int? = null,
        @ColumnInfo(name = "icon") var icon: String,
        @ColumnInfo(name = "temperature") var temperature: Int,
-       @ColumnInfo(name = "windSpeed") var windSpeed: Int
+       @ColumnInfo(name = "windSpeed") var windSpeed: Int,
+       @ColumnInfo(name = "timeZone") var timeZone: String
     ) {}
 
     @Entity (tableName = "weatherHourly")
@@ -30,7 +31,6 @@ class WeatherDataBase {
         @ColumnInfo(name = "temperatureLow") var temperatureLow: Int,
         @ColumnInfo(name = "windSpeed") var windSpeed: Int
     ) {}
-
     data class WeatherPackage(val weatherCurrently: WeatherCurrently, val weatherHourly: List<WeatherHourly>,
                          val weatherDaily: List<WeatherDaily>)
 
@@ -70,14 +70,15 @@ class WeatherDataBase {
         fun getAll(): List<WeatherDaily>
     }
 
+
     @Database(entities = arrayOf(
         WeatherCurrently::class,
         WeatherHourly::class,
         WeatherDaily::class
-    ), version = 1)
+    ), version = 1, exportSchema = false)
     abstract class WeatherDB : RoomDatabase() {
-        abstract fun weatherCurrentlyDao() : WeatherCurrentlyDao
-        abstract fun weatherHourlyDao() : WeatherHourlyDao
-        abstract fun weatherDailyDao() : WeatherDailyDao
+        abstract fun weatherCurrentlyDao(): WeatherCurrentlyDao
+        abstract fun weatherHourlyDao(): WeatherHourlyDao
+        abstract fun weatherDailyDao(): WeatherDailyDao
     }
 }

@@ -1,12 +1,13 @@
 package com.eweather.databases
 
+import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class JsonParserTest {
+class DataFromJsonParserTest {
     @Test
     fun test() {
         val currentlyIcon = "iconCurrently"
@@ -31,7 +32,7 @@ class JsonParserTest {
                 "}]}, \"daily\":{\"data\":[{\"icon\":$dailyIcon,\"time\":$dailyTime,\"temperatureHigh\":" +
                 "$dailyTemperatureHigh,\"temperatureLow\":$dailyTemperatureLow,\"windSpeed\":$dailyWindSpeed}]}}"
 
-        val jsonParse = JsonParse()
+        val jsonParse = DataFromJson(InstrumentationRegistry.getTargetContext())
         jsonParse.weatherParse(json)
 
         val currenltyWeather = jsonParse.currentlyWeather

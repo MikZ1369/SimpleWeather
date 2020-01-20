@@ -9,6 +9,17 @@
     android:layout_height="match_parent"
     android:background="@color/black">
 
+    <ImageView
+        android:id="@+id/currentlyIcon"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_alignTop="@+id/currentTemp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="40dp" />
+
     <TextView
         android:id="@+id/currentTemp"
         android:layout_width="wrap_content"
@@ -16,9 +27,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginLeft="71dp"
+        android:layout_marginTop="53dp"
         android:text="@string/default_temp"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
@@ -33,12 +44,12 @@
         android:layout_alignTop="@+id/currentTemp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="16dp"
         android:layout_toEndOf="@+id/currentTemp"
         android:layout_toRightOf="@+id/currentTemp"
         android:text="°"
-        android:textSize="60dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="60dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/hourly_recycler_view"
@@ -52,17 +63,30 @@
         android:layout_marginRight="5dp"
         android:scrollbars="vertical" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/daily_recycler_view"
-        android:layout_width="259dp"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/hourly_recycler_view"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="61dp"
-        android:layout_marginEnd="170dp"
-        android:layout_marginRight="170dp"
-        android:scrollbars="horizontal" />
+        android:layout_marginEnd="337dp"
+        android:layout_marginRight="337dp"
+        android:text="Next 7 days" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/daily_recycler_view"
+        android:layout_width="392dp"
+        android:layout_height="155dp"
+        android:layout_below="@+id/hourly_recycler_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginRight="9dp"
+        android:scrollbars="vertical" />
 
 
 </RelativeLayout>
