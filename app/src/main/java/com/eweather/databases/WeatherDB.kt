@@ -10,7 +10,9 @@ class WeatherDataBase {
        @ColumnInfo(name = "icon") var icon: String,
        @ColumnInfo(name = "temperature") var temperature: Int,
        @ColumnInfo(name = "windSpeed") var windSpeed: Int,
-       @ColumnInfo(name = "timeZone") var timeZone: String
+       @ColumnInfo(name = "timeZone") var timeZone: String,
+       @ColumnInfo(name = "summary_currently") var summaryCurrently: String,
+       @ColumnInfo(name = "summary_hourly") var summaryHourly: String
     ) {}
 
     @Entity (tableName = "weatherHourly")

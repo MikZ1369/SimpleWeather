@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="44dp"
-    android:layout_height="wrap_content"
+    android:layout_width="60dp"
+    android:layout_height="110dp"
     android:layout_marginLeft="10dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/item_background">
 
 
     <TextView
@@ -13,9 +14,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
         android:text="-10"
         android:textColor="@color/white" />
 
@@ -40,11 +41,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginRight="13dp" />
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp" />
 
     <ImageView
         android:id="@+id/hourlyWindIcon"
@@ -53,8 +54,8 @@
         android:layout_below="@+id/hourlyIcon"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
         android:layout_marginTop="7dp"
         android:src="@drawable/wind" />
 
@@ -80,11 +81,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
         android:layout_marginTop="6dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
+        android:layout_marginEnd="-5dp"
+        android:layout_marginRight="-5dp"
         android:text="00:00"
         android:textColor="@color/white" />
 

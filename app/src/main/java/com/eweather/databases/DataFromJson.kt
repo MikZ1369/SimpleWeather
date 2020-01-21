@@ -34,7 +34,8 @@ class DataFromJson(val context: Context) {
         val windSpeed = jWeatherCurrently.getInt("windSpeed")
         return WeatherDataBase.WeatherCurrently(null,
             jWeatherCurrently.getString("icon"), temperature, windSpeed,
-            jsonObject.getString("timezone"))
+            jsonObject.getString("timezone"), jWeatherCurrently.getString("summary"),
+            jsonObject.getJSONObject("hourly").getString("summary"))
     }
 
     private fun getHourlyWeather(jsonObject: JSONObject): ArrayList<WeatherDataBase.WeatherHourly> {

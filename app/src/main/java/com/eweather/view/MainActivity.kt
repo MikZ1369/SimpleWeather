@@ -113,8 +113,12 @@ class MainActivity : FragmentActivity() {
 
     private fun updateUI(weatherPackage: WeatherDataBase.WeatherPackage) {
         val currentTempTextView = findViewById<TextView>(R.id.currentTemp)
+        val summaryCurrentlyTextView = findViewById<TextView>(R.id.summaryCurrently)
+        val summaryHourlyTextView = findViewById<TextView>(R.id.summaryHourly)
         val imageViewIcon = findViewById(R.id.currentlyIcon) as ImageView
         currentTempTextView.text = weatherPackage.weatherCurrently.temperature.toString()
+        summaryCurrentlyTextView.text = weatherPackage.weatherCurrently.summaryCurrently
+        summaryHourlyTextView.text = weatherPackage.weatherCurrently.summaryHourly
         imageViewIcon.setImageDrawable(ResourcesImage(this).getResourcesImage(weatherPackage.weatherCurrently.icon))
         val viewManagerHourly = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         val viewManagerDaily = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)

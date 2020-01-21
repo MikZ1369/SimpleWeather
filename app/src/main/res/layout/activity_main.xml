@@ -16,8 +16,8 @@
         android:layout_alignTop="@+id/currentTemp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
         android:layout_marginTop="40dp" />
 
     <TextView
@@ -27,9 +27,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="71dp"
-        android:layout_marginLeft="71dp"
-        android:layout_marginTop="53dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="25dp"
         android:text="@string/default_temp"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
@@ -42,14 +42,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/currentTemp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="-8dp"
+        android:layout_marginLeft="-8dp"
+        android:layout_marginTop="18dp"
         android:layout_toEndOf="@+id/currentTemp"
         android:layout_toRightOf="@+id/currentTemp"
         android:text="°"
         android:textColor="@color/white"
         android:textSize="60dp" />
+
+    <TextView
+        android:id="@+id/summaryCurrently"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/currentTemp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="7dp"
+        android:text="Mostly cloudy throughout the day."
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/summaryHourly"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/summaryCurrently"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="10dp"
+        android:text="Light rain starting later this evening, continuing until tomorrow morning."
+        android:textColor="@color/white"
+        android:textSize="15dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/hourly_recycler_view"
@@ -58,32 +86,36 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="181dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginTop="274dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
         android:scrollbars="vertical" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="167dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/hourly_recycler_view"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="337dp"
-        android:layout_marginRight="337dp"
-        android:text="Next 7 days" />
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="242dp"
+        android:layout_marginRight="242dp"
+        android:text="Next 7 days"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/daily_recycler_view"
-        android:layout_width="392dp"
-        android:layout_height="155dp"
+        android:layout_width="402dp"
+        android:layout_height="159dp"
         android:layout_below="@+id/hourly_recycler_view"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="63dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="58dp"
         android:layout_marginEnd="9dp"
         android:layout_marginRight="9dp"
         android:scrollbars="vertical" />
