@@ -1,6 +1,5 @@
 package com.eweather.databases
 
-import android.content.Context
 import androidx.room.*
 
 class WeatherDataBase {
@@ -9,8 +8,8 @@ class WeatherDataBase {
        @PrimaryKey(autoGenerate = true) var weatherCurrentlyID: Int? = null,
        @ColumnInfo(name = "icon") var icon: String,
        @ColumnInfo(name = "temperature") var temperature: Int,
-       @ColumnInfo(name = "windSpeed") var windSpeed: Int,
-       @ColumnInfo(name = "timeZone") var timeZone: String,
+       @ColumnInfo(name = "wind_speed") var windSpeed: Int,
+       @ColumnInfo(name = "time_zone") var timeZone: String,
        @ColumnInfo(name = "summary_currently") var summaryCurrently: String,
        @ColumnInfo(name = "summary_hourly") var summaryHourly: String
     ) {}
@@ -29,9 +28,17 @@ class WeatherDataBase {
         @PrimaryKey(autoGenerate = true) var weatherCurrentlyID: Int? = null,
         @ColumnInfo(name = "icon") var icon: String,
         @ColumnInfo(name = "time") var time: Int,
-        @ColumnInfo(name = "temperatureHigh") var temperatureHigh: Int,
-        @ColumnInfo(name = "temperatureLow") var temperatureLow: Int,
+        @ColumnInfo(name = "temperature_high") var temperatureHigh: Int,
+        @ColumnInfo(name = "temperature_low") var temperatureLow: Int,
         @ColumnInfo(name = "windSpeed") var windSpeed: Int
+    ) {}
+
+    @Entity (tableName = "places")
+    class Places (
+        @PrimaryKey(autoGenerate = true) var weatherCurrentlyID: Int? = null,
+        @ColumnInfo(name = "latitude") var latitude: Long,
+        @ColumnInfo(name = "longitude") var longitude: Long,
+        @ColumnInfo(name = "place_name") var placeName: String
     ) {}
     data class WeatherPackage(val weatherCurrently: WeatherCurrently, val weatherHourly: List<WeatherHourly>,
                          val weatherDaily: List<WeatherDaily>)
@@ -72,15 +79,28 @@ class WeatherDataBase {
         fun getAll(): List<WeatherDaily>
     }
 
+    @Dao
+    interface PlacesDao {
+        @Insert
+        fun insertAll(vararg places: Places)
+
+        @Delete
+        fun delete(vararg places: Places)
+
+        @Query("SELECT * FROM places")
+        fun getAll(): List<Places>
+    }
 
     @Database(entities = arrayOf(
         WeatherCurrently::class,
         WeatherHourly::class,
-        WeatherDaily::class
+        WeatherDaily::class,
+        Places::class
     ), version = 1, exportSchema = false)
     abstract class WeatherDB : RoomDatabase() {
         abstract fun weatherCurrentlyDao(): WeatherCurrentlyDao
         abstract fun weatherHourlyDao(): WeatherHourlyDao
         abstract fun weatherDailyDao(): WeatherDailyDao
+        abstract fun placesDao(): PlacesDao
     }
 }
